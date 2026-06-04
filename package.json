@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-api-user-management-",
+  "version": "1.0.0",
+  "description": "A proof-of-concept Node.js application demonstrating a simple REST API for user management. Built with Node.js's built-in `http` module, it provides CRUD operations (Create, Read, Update, Delete) for managing user data. The API runs on port 3000 and uses in-memory storage with JSON data structure.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prashika/nodejs-api-user-management-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Prashika/nodejs-api-user-management-/issues"
+  },
+  "homepage": "https://github.com/Prashika/nodejs-api-user-management-#readme"
+}
