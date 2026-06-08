@@ -6,6 +6,14 @@ function sendResponse(res, statusCode, data) {
   res.end(JSON.stringify(data));
 }
 
+function sendError(res, statusCode, message) {
+  sendResponse(res, statusCode, {
+    success: false,
+    message,
+  });
+}
+
 module.exports = {
   sendResponse,
+  sendError,
 };
