@@ -47,7 +47,7 @@ Server will run on `http://localhost:3000`
 {
   "id": 3,
   "name": "Jane",
-  "age": 25
+  "email": 25
 }
 ```
 6. Click **Send**
@@ -85,17 +85,31 @@ Server will run on `http://localhost:3000`
 ## Project Structure
 
 ```
-nodejs-rest-api-poc/
-├── index.js              # Main server file
+nodejs-api-user-management/
+├── index.js              # Entry point
+├── server.js             # Server configuration
 ├── package.json          # Project dependencies
 ├── README.md             # Documentation
-├── routes/
-│   └── users.js          # User route handlers
-├── data/
-│   └── users.json        # User data storage
-├── utils/
-│   └── logger.js         # Logging utilities
-└── BEST_PRACTICES.md     # Best practices guide
+├── LICENSE               # License file
+├── logs/                 # Log files directory
+├── src/
+│   ├── config/
+│   │   └── config.js     # Configuration settings
+│   ├── db/
+│   │   └── store.js      # In-memory data store
+│   ├── handlers/
+│   │   ├── userHandlers.js    # User CRUD operations
+│   │   └── errorHandlers.js   # Error handling
+│   ├── middleware/
+│   │   ├── bodyParser.js      # Request body parsing
+│   │   ├── cors.js            # CORS configuration
+│   │   └── errorMiddleware.js # Error middleware
+│   └── utils/
+│       ├── helpers.js    # Helper functions
+│       ├── loggers.js    # Logging utilities
+│       ├── response.js   # Response formatting
+│       └── validators.js # Data validation
+└── tests/                # Test files directory
 ```
 
 ## License

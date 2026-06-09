@@ -1,7 +1,7 @@
 const http = require("http");
 const config = require("./src/config/config");
 
-const { getUsers, createUser, updateUser } = require("./src/handlers/userHandlers");
+const { getUsers, createUser, updateUser, deleteUser } = require("./src/handlers/userHandlers");
 
 const server = http.createServer((req, res) => {
   if (req.url === "/users" && req.method === "GET") {
@@ -17,6 +17,13 @@ const server = http.createServer((req, res) => {
     req.method === "PUT"
   ) {
     return updateUser(req, res);
+  }
+
+  if (
+    req.url.startsWith("/users/") &&
+    req.method === "DELETE"
+  ) {
+    return deleteUser(req, res);
   }
 
   res.writeHead(404, {

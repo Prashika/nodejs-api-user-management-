@@ -33,6 +33,33 @@ async function createUser(req, res) {
     sendError(res, 400, error.message);
   }
 }
+function deleteUser(req, res) {
+  const urlParts = req.url.split("/");
+
+  const userId = Number(urlParts[2]);
+
+  if (isNaN(userId)) {
+    return sendError(res, 400, "Invalid user id");
+  }
+
+  const userIndex = users.findIndex(
+    (user) => user.id === userId
+  );
+
+  if (userIndex === -1) {
+    return sendError(res, 404, "User not found");
+  }
+
+  const deletedUser = users[userIndex];
+
+  users.splice(userIndex, 1);
+
+  sendResponse(res, 200, {
+    success: true,
+    message: "User deleted successfully",
+    data: deletedUser,
+  });
+}
 
 async function updateUser(req, res) {
   try {
@@ -75,9 +102,12 @@ async function updateUser(req, res) {
   } catch (error) {
     sendError(res, 400, error.message);
   }
+
+
 }
 module.exports = {
   getUsers,
   createUser,
   updateUser,
+  deleteUser
 };
